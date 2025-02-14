@@ -1,0 +1,11 @@
+select
+	OH.ORDER_ID ,
+	OH.ORDER_DATE ,
+	OH.STATUS_ID ,
+	PL.FACILITY_ID ,
+	DATEDIFF(PL.PICKLIST_DATE, OH.ORDER_DATE) AS DURATION
+from order_header OH
+left join picklist_bin PB
+on OH.ORDER_ID = PB.PICKLIST_BIN_ID
+left join picklist PL
+on PL.PICKLIST_ID = PB.PICKLIST_ID 

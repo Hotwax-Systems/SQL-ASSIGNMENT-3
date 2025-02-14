@@ -1,0 +1,9 @@
+select
+	II.PRODUCT_ID ,
+	II.INVENTORY_ITEM_ID ,
+	FC.FACILITY_ID ,
+	FC.FACILITY_TYPE_ID 
+from inventory_item II
+left join facility FC
+on II.FACILITY_ID = FC.FACILITY_ID 
+where FC.FACILITY_TYPE_ID = 'VIRTUAL_FACILITY'

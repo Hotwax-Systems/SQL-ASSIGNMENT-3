@@ -1,0 +1,9 @@
+select
+	P.PRODUCT_ID ,
+	P.PRODUCT_NAME ,
+	COUNT(II.FACILITY_ID),
+	GROUP_CONCAT(II.FACILITY_ID) as FACILITY_IDS
+from inventory_item II
+left join product P
+on P.PRODUCT_ID = II.PRODUCT_ID 
+group by P.PRODUCT_ID
